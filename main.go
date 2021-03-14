@@ -7,14 +7,28 @@ import (
 	"github.com/spf13/pflag"
 	"gopkg.in/yaml.v3"
 	"io/ioutil"
+	"os"
 	"regexp"
+)
+
+var (
+	GitHash   string
+	BuildTime string
 )
 
 func main() {
 	inputFile := pflag.StringP("config", "c", "config.yaml", "clash config file (yaml type)")
 	templateFile := pflag.StringP("template", "t", "template.yaml", "template config file")
+	version := pflag.BoolP("version", "v", false, "version info")
 
 	pflag.Parse()
+	if *version {
+		fmt.Fprintf(os.Stderr, `version info:
+git hash: %v
+build time: %v`, GitHash, BuildTime)
+		return
+	}
+
 	logrus.Debugf("clash config file: %v", *inputFile)
 	logrus.Debugf("clash template file: %v", *templateFile)
 
@@ -72,10 +86,10 @@ func preprocessConfigFile(filename string) (*config.RawConfig, error) {
 	if err != nil {
 		return nil, err
 	}
-	bs = RemoveEmoji(bs)
+	bs = removeEmoji(bs)
 	return config.UnmarshalRawConfig(bs)
 }
-func RemoveEmoji(bs []byte) []byte {
+func removeEmoji(bs []byte) []byte {
 	var emojiRe = regexp.MustCompile(`[\x{F000}-\x{FFFFF}]`)
 	return emojiRe.ReplaceAll(bs, nil)
 }
