@@ -9,10 +9,10 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:7895
 dns:
-  enable: false
+  enable: true
   listen: 0.0.0.0:53
-  enhanced-mode: fake-ip
-  # enhanced-mode: redir-host
+  # enhanced-mode: fake-ip
+  enhanced-mode: redir-host
   nameserver:
     - tls://dns.google
     - tls://dns.rubyfish.cn:853
@@ -1013,6 +1013,7 @@ rules:
   - DOMAIN-SUFFIX,zhihu.com,China-Websites
   - DOMAIN-SUFFIX,zhimg.com,China-Websites
   - DOMAIN-SUFFIX,zhuihd.com,China-Websites
+  - DOMAIN-SUFFIX,speedtest.net,China-Websites
   - DOMAIN,download.jetbrains.com,China-Websites
   - DOMAIN-SUFFIX,local,China-Websites
   - DOMAIN,mtalk.google.com,China-Websites
