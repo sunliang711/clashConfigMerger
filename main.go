@@ -20,6 +20,8 @@ func main() {
 	inputFile := pflag.StringP("config", "c", "config.yaml", "clash config file (yaml type)")
 	templateFile := pflag.StringP("template", "t", "template.yaml", "template config file")
 	version := pflag.BoolP("version", "v", false, "version info")
+	outputFile := pflag.StringP("output", "o", "output.yaml", "output config file")
+	logLevel := pflag.StringP("loglevel", "l", "info", "log level")
 
 	pflag.Parse()
 	if *version {
@@ -29,8 +31,10 @@ build time: %v`, GitHash, BuildTime)
 		return
 	}
 
-	logrus.Debugf("clash config file: %v", *inputFile)
-	logrus.Debugf("clash template file: %v", *templateFile)
+	setLogLevel(*logLevel)
+
+	logrus.Infof("clash config file: %v", *inputFile)
+	logrus.Infof("clash template file: %v", *templateFile)
 
 	templateCfg, err := preprocessConfigFile(*templateFile)
 	if err != nil {
@@ -70,7 +74,6 @@ build time: %v`, GitHash, BuildTime)
 	}
 	logrus.Debugf("allIdx: %v", allIdx)
 	for _, idx := range allIdx {
-		fmt.Printf("id: %v proxies: %v", idx, templateCfg.ProxyGroup[idx]["proxies"])
 		templateCfg.ProxyGroup[idx]["proxies"] = allName
 	}
 
@@ -78,7 +81,8 @@ build time: %v`, GitHash, BuildTime)
 	if err != nil {
 		logrus.Fatalf("marshal template config error: %v", err)
 	}
-	ioutil.WriteFile("out.yaml", bs, 0600)
+	logrus.Infof("output to file: %v", *outputFile)
+	ioutil.WriteFile(*outputFile, bs, 0600)
 }
 
 func preprocessConfigFile(filename string) (*config.RawConfig, error) {
@@ -92,4 +96,19 @@ func preprocessConfigFile(filename string) (*config.RawConfig, error) {
 func removeEmoji(bs []byte) []byte {
 	var emojiRe = regexp.MustCompile(`[\x{F000}-\x{FFFFF}]`)
 	return emojiRe.ReplaceAll(bs, nil)
+}
+
+func setLogLevel(lvl string) {
+	switch lvl {
+	case "debug":
+		logrus.SetLevel(logrus.DebugLevel)
+	case "info":
+		logrus.SetLevel(logrus.InfoLevel)
+	case "warn":
+		logrus.SetLevel(logrus.WarnLevel)
+	case "error":
+		logrus.SetLevel(logrus.ErrorLevel)
+	default:
+		logrus.SetLevel(logrus.InfoLevel)
+	}
 }
