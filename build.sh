@@ -217,6 +217,7 @@ set -e
 exeName="clashMerger"
 # separated by space or newline,quote item if item including space
 declare -a runtimeFiles=(
+template.yaml
 )
 # FIX ME
 # example: main.GitHash or packageName/path/to/hello.GitHash
@@ -234,7 +235,7 @@ _build(){
         echo "${RED}Error: exeName not set!${NORMAL}"
         exit 1
     fi
-    local resultDir="${exeName}-${os}-${arch}"
+    local resultDir=binary/"${exeName}-${os}-${arch}"
 
     if [ ${#runtimeFiles} -eq 0 ];then
         echo "${YELLOW}Warning: runtimeFiles is empty!${NORMAL}"

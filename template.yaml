@@ -7,7 +7,7 @@ cfw-latency-url: http://www.gstatic.com/generate_204
 mode: Rule
 # mode: Global
 log-level: info
-external-controller: 127.0.0.1:7895
+external-controller: 127.0.0.1:9090
 dns:
   enable: true
   listen: 0.0.0.0:53
@@ -15,7 +15,7 @@ dns:
   enhanced-mode: redir-host
   nameserver:
     - tls://dns.google
-    - tls://dns.rubyfish.cn:853
+    # - tls://dns.rubyfish.cn:853
     - 119.29.29.29
     - 223.5.5.5
   fallback:
@@ -28,6 +28,7 @@ dns:
     - 8.8.8.8
   fake-ip-filter:
     - '*.gitez.cc'
+
 tun:
     enable: false
     stack: gvisor # or system (system not work)
@@ -65,101 +66,1157 @@ proxies:
   - name:  Hong Kong 01
     type: ss
     server: djarmiqfh.walisk.info
+    port: "5600"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 02
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5603"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 03
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5601"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 04
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5602"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 05
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5610"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 06
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5611"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 07
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5606"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 08
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5609"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 09
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5604"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 10
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5605"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 11
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5607"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 12
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5608"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 13
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5756"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 14
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5747"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 15
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5748"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 16
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5749"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 17
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5750"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 18
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5751"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 19
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5752"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hong Kong 20 [0.3x]
+    type: ss
+    server: vjcpgpe.potisk.info
+    port: "5767"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United States 01
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5613"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United States 02
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5612"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United States 03
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5615"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United States 04 [Premium]
+    type: ss
+    server: eixyriwlk.potisk.info
+    port: "5618"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United States 05 [Premium]
+    type: ss
+    server: eixyriwlk.potisk.info
+    port: "5621"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United States 06 [Premium]
+    type: ss
+    server: eixyriwlk.potisk.info
+    port: "5640"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United States 07 [Premium]
+    type: ss
+    server: eixyriwlk.potisk.info
+    port: "5624"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United States 08
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5627"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United States 09
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5630"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United States 10
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5633"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United States 11
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5636"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United States 12
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5639"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United States 13
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5641"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United States 14 [Premium]
+    type: ss
+    server: eixyriwlk.potisk.info
+    port: "5764"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United States 15 [Premium]
+    type: ss
+    server: eixyriwlk.potisk.info
+    port: "5766"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United States 16 [Emby] [0.3x]
+    type: ss
+    server: fcxfdmo.walisk.info
+    port: "5768"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 01
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5642"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 02
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5645"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 03
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5648"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 04
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5649"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 05
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5654"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 06
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5657"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 07
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5660"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 08
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5663"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 09
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5666"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 10
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5669"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 11
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5672"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 12
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5651"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 13
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5676"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 14
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5646"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 15
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5647"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 16
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5650"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 17
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5655"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 18
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5652"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 19
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5653"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 20
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5661"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 21
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5662"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 22 [Premium]
+    type: ss
+    server: eixyriwlk.potisk.info
+    port: "5762"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Japan 23 [Premium]
+    type: ss
+    server: eixyriwlk.potisk.info
+    port: "5763"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Netherlands
+    type: ss
+    server: sfgzqpq.walisk.info
+    port: "5675"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Russia
+    type: ss
+    server: sfgzqpq.walisk.info
+    port: "5678"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Germany 1
+    type: ss
+    server: sfgzqpq.walisk.info
+    port: "5681"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Germany 2
+    type: ss
+    server: sfgzqpq.walisk.info
+    port: "5682"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  France
+    type: ss
+    server: sfgzqpq.walisk.info
+    port: "5684"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Norway
+    type: ss
+    server: sfgzqpq.walisk.info
+    port: "5765"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United Kingdom 1
+    type: ss
+    server: sfgzqpq.walisk.info
+    port: "5687"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United Kingdom 2
+    type: ss
+    server: sfgzqpq.walisk.info
+    port: "5688"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  United Kingdom 3
+    type: ss
+    server: sfgzqpq.walisk.info
+    port: "5689"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Sweden
+    type: ss
+    server: sfgzqpq.walisk.info
+    port: "5690"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Bulgaria
+    type: ss
+    server: sfgzqpq.walisk.info
+    port: "5761"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Austria
+    type: ss
+    server: sfgzqpq.walisk.info
+    port: "5698"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Ireland 1
+    type: ss
+    server: sfgzqpq.walisk.info
+    port: "5693"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Ireland 2
+    type: ss
+    server: sfgzqpq.walisk.info
+    port: "5694"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Italy
+    type: ss
+    server: sfgzqpq.walisk.info
+    port: "5697"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Hungary
+    type: ss
+    server: sfgzqpq.walisk.info
+    port: "5760"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Korea 1
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5699"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Korea 2
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5700"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Korea 3 [Premium]
+    type: ss
+    server: eixyriwlk.potisk.info
+    port: "5701"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Taiwan 1
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5702"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Taiwan 2
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "7703"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Taiwan 3
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "7704"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Taiwan 4
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "7706"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Taiwan 5
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "7707"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Canada
+    type: ss
+    server: bytmvmj.potisk.info
+    port: "5717"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Sydney [Premium]
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5720"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  India 1
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5726"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  India 2
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5725"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Singapore 01
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5729"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Singapore 02
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5732"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Singapore 03
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5733"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Singapore 04
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5734"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Singapore 05
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5740"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Singapore 06
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5743"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Singapore 07
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5746"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Singapore 08
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5757"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Singapore 09
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5758"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Singapore 10
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5759"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
+  - name:  Malaysia
+    type: ss
+    server: djarmiqfh.walisk.info
+    port: "5738"
+    cipher: aes-128-gcm
+    password: nexitally
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
+      host: b94a9a20435b474f.download.microsoft.com
 proxy-groups:
-  - name: all
-    type: select
-    proxies:
-      -  Auto
-      -  Select
-  - name: Auto
-    type: url-test
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
-    tolerance: 100
-    proxies:
-      # 这里放所有的节点
-      -  HK01
-  - name: Select
-    type: select
-    proxies:
-      # 这里放所有的节点
-      - HK01
-
   - name:  Apple
     type: select
     proxies:
       - DIRECT
-      - all
+      - All
   - name:  Emby
     type: select
     proxies:
-      -  all
-      -  DIRECT
+      - All
+      - DIRECT
   - name:  Telegram
     type: select
     proxies:
-      - all
+      - All
       - DIRECT
   - name:  YouTube
     type: select
     proxies:
-      - all
+      - All
       - DIRECT
   - name:  Bilibili
     type: select
     proxies:
       - DIRECT
-      - all
+      - All
   - name:  myTVSUPER
     type: select
     proxies:
-      - all
+      - All
       - DIRECT
   - name:  LineTV
     type: select
     proxies:
-      - all
+      - All
       - DIRECT
   - name:  iQiyi
     type: select
     proxies:
       - DIRECT
-      - all
+      - All
   - name:  Tiktok
     type: select
     proxies:
-      - all
+      - All
       - DIRECT
   - name:  Netflix
     type: select
     proxies:
-      - all
+      - All
       - DIRECT
   - name:  Google
     type: select
     proxies:
-      - all
+      - All
       - DIRECT
   - name:  Microsoft
     type: select
     proxies:
-      - all
+      - All
       - DIRECT
   - name:  Twitter
     type: select
     proxies:
-      - all
+      - All
       - DIRECT
   - name:  International-Media
     type: select
     proxies:
-      - all
+      - All
       - DIRECT
   - name: China-Media
     type: select
     proxies:
       - DIRECT
-      - all
+      - All
   - name: Hijacking
     type: select
     proxies:
@@ -169,11 +1226,11 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - all
+      - All
   - name: Final
     type: select
     proxies:
-      - all
+      - All
       - DIRECT
 rules:
   - DOMAIN-SUFFIX,emby.nexitally.com, Emby
@@ -847,6 +1904,7 @@ rules:
   - DOMAIN-SUFFIX,xiami.com,China-Websites
   - DOMAIN-SUFFIX,xiami.net,China-Websites
   - DOMAIN-SUFFIX,baidu.com,China-Websites
+  - DOMAIN-SUFFIX,speedtest.net,China-Websites
   - DOMAIN-SUFFIX,baidubcr.com,China-Websites
   - DOMAIN-SUFFIX,bdstatic.com,China-Websites
   - DOMAIN-SUFFIX,acgvideo.com,China-Websites
@@ -1013,7 +2071,6 @@ rules:
   - DOMAIN-SUFFIX,zhihu.com,China-Websites
   - DOMAIN-SUFFIX,zhimg.com,China-Websites
   - DOMAIN-SUFFIX,zhuihd.com,China-Websites
-  - DOMAIN-SUFFIX,speedtest.net,China-Websites
   - DOMAIN,download.jetbrains.com,China-Websites
   - DOMAIN-SUFFIX,local,China-Websites
   - DOMAIN,mtalk.google.com,China-Websites
@@ -1326,6 +2383,7 @@ rules:
   - DOMAIN-SUFFIX,w3schools.com,Final
   - DOMAIN-SUFFIX,washingtonpost.com,Final
   - DOMAIN-SUFFIX,wattpad.com,Final
+  - DOMAIN-SUFFIX,coachoutlet.com, USA
   - DOMAIN-SUFFIX,whoer.net,Final
   - DOMAIN-SUFFIX,wikimapia.org,Final
   - DOMAIN-SUFFIX,wikipedia.org,Final

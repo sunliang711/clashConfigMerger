@@ -2,13 +2,16 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
+	"os"
+	"regexp"
+	"strings"
+
+	"clashConfigMerger/utils"
 	"github.com/Dreamacro/clash/config"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/pflag"
 	"gopkg.in/yaml.v3"
-	"io/ioutil"
-	"os"
-	"regexp"
 )
 
 var (
@@ -22,8 +25,10 @@ func main() {
 	version := pflag.BoolP("version", "v", false, "version info")
 	outputFile := pflag.StringP("output", "o", "output.yaml", "output config file")
 	logLevel := pflag.StringP("loglevel", "l", "info", "log level")
+	groupPrefixes := pflag.StringArrayP("prefix", "p", nil, "group prefixes")
 
 	pflag.Parse()
+
 	if *version {
 		fmt.Fprintf(os.Stderr, `version info:
 git hash: %v
@@ -54,28 +59,50 @@ build time: %v`, GitHash, BuildTime)
 		// get all name
 	__INNER:
 		for k, v := range proxy {
+			// 找到name对应的v，把它放到allName中，用来统计所有的proxy name
 			if k == "name" {
 				allName = append(allName, v.(string))
 				break __INNER
 			}
 		}
 	}
-	logrus.Debugf("allName: %v", allName)
-	// TODO 把所有节点信息添加到模板中templateCfg
-	allIdx := []int{}
-	for idx, proxy := range templateCfg.ProxyGroup {
-		for k, v := range proxy {
-			if k == "name" {
-				if v == "Auto" || v == "Select" {
-					allIdx = append(allIdx, idx)
-				}
-			}
-		}
+	logrus.Debugf("all proxy names: %v", allName)
+	// 把allName替换name叫做All的proxy-group中
+	// 把name为All的proxy-group替换成
+
+	// 1. 构造name为All的proxy-group (用map表示),并插入到templateCfg.ProxyGroup中
+	allGroup := make(map[string]interface{})
+	allGroup["name"] = "All"
+	allGroup["type"] = "select"
+	// 插入到第一个位置
+
+	// 2. 把其它在模板中的proxy-group(比如name为Apple,Emby,Telegram)的proxies中追加allName中的所有name
+	for idx := range templateCfg.ProxyGroup {
+		templateCfg.ProxyGroup[idx]["proxies"] = append(templateCfg.ProxyGroup[idx]["proxies"].([]interface{}), []interface{}{allName}...)
 	}
-	logrus.Debugf("allIdx: %v", allIdx)
-	for _, idx := range allIdx {
-		templateCfg.ProxyGroup[idx]["proxies"] = allName
+
+	var allLcp []string
+	// 3. 把allName中的name按照最长前缀分组，每个组就是一个proxy group
+	var customGroups []map[string]interface{}
+	groups := utils.GroupStringArray(allName, *groupPrefixes)
+	for idx := range groups {
+		newProxyGroup := make(map[string]interface{})
+		lcp := utils.LongestCommonPrefix(groups[idx])
+		lcp = strings.Trim(lcp, " ")
+		allLcp = append(allLcp, lcp)
+		newProxyGroup["name"] = lcp
+		newProxyGroup["type"] = "url-test"
+		newProxyGroup["url"] = "http://www.gstatic.com/generate_204"
+		newProxyGroup["interval"] = 300
+		newProxyGroup["tolerance"] = 100
+		newProxyGroup["proxies"] = groups[idx]
+		// 插入
+		customGroups = append(customGroups, newProxyGroup)
 	}
+	allGroup["proxies"] = allLcp
+
+	tmpGroups := append([]map[string]interface{}{allGroup}, customGroups...)
+	templateCfg.ProxyGroup = append(tmpGroups, templateCfg.ProxyGroup...)
 
 	bs, err := yaml.Marshal(templateCfg)
 	if err != nil {
